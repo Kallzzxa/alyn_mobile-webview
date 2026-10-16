@@ -1,4 +1,4 @@
-#include "include/encoding.h"
+#include "include/Encoding.h"
 
 #include <spdlog/spdlog.h>
 #include <iconv.h>

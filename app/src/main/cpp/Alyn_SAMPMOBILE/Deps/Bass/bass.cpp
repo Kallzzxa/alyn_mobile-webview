@@ -1,6 +1,6 @@
 #include <dlfcn.h>
 
-#include "bass.h"
+#include "Bass.h"
 #include "../../Client.h"
 
 int (*BASS_Init) (uint32_t, uint32_t, uint32_t);

@@ -6,7 +6,6 @@
 #include "BitStream.h"
 #include <stdlib.h>
 #include <assert.h>
-#include <memory.h>
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
