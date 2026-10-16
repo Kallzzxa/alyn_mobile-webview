@@ -1,8 +1,8 @@
 plugins {
     id "com.android.application"
-    id "com.joom.paranoid"
-/*    id "com.google.gms.google-services"
-    id "com.google.firebase.crashlytics"*/
+    id "com.joom.paranoid" version "0.3.14"
+/*    id "com.google.gms.google-services" version "4.4.2"
+    id "com.google.firebase.crashlytics" version "3.0.2"*/
 }
 
 android {
@@ -35,6 +35,19 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // Signing via env vars (CI secrets). Unsigned if not provided.
+            if (System.getenv("ALYN_KEYSTORE_PATH") != null) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(System.getenv("ALYN_KEYSTORE_PATH") ?: "alyn-release.keystore")
+            storePassword System.getenv("ALYN_STORE_PASSWORD")
+            keyAlias System.getenv("ALYN_KEY_ALIAS") ?: "alyn"
+            keyPassword System.getenv("ALYN_KEY_PASSWORD")
         }
     }
 

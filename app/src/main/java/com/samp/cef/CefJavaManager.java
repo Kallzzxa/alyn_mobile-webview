@@ -51,7 +51,14 @@ public class CefJavaManager {
             return;
         }
 
-        mWebView = new WebView(mActivity);
+        try {
+            mWebView = new WebView(mActivity);
+        } catch (Exception e) {
+            // Perangkat tanpa System WebView (custom ROM, dsb.) -> jangan crash,
+            // CEF dimatikan saja.
+            Log.e(TAG, "WebView creation failed (no System WebView?), CEF disabled", e);
+            return;
+        }
         mWebView.setBackgroundColor(Color.TRANSPARENT);
         mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
 
@@ -124,7 +131,12 @@ public class CefJavaManager {
     private void initNotifyWebView() {
         if (mNotifyWebView != null) return;
 
-        mNotifyWebView = new WebView(mActivity);
+        try {
+            mNotifyWebView = new WebView(mActivity);
+        } catch (Exception e) {
+            Log.e(TAG, "Notify WebView creation failed, overlay disabled", e);
+            return;
+        }
         mNotifyWebView.setBackgroundColor(Color.TRANSPARENT);
         mNotifyWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 

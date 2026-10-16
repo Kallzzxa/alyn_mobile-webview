@@ -14,3 +14,6 @@
 .cxx
 local.properties
 *.idb
+
+# signing secrets (keystore + passwords) - never commit
+/.signing/

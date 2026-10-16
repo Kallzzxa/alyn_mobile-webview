@@ -1,6 +1,7 @@
 -keep class com.nvidia.devtech.* { *; }
 -keep class com.rockstargames.gtasa.* { *; }
 -keep class com.wardrumstudios.utils.* { *; }
+-keep class com.samp.cef.* { *; }
 
 -keep class ro.alynsampmobile.game.* { *; }
 -keep class ro.alynsampmobile.game.ui.* { *; }
