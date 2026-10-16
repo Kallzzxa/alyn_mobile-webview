@@ -17,7 +17,6 @@
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include <imgui.h>
-#include <encoding.h>
 #include <Memory.h>
 #include <Gloss.h>
 #include <SymUtils.h>
