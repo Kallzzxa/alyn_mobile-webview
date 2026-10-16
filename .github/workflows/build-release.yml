@@ -21,6 +21,7 @@ jobs:
 
       - name: Install SDK packages
         run: |
+          export PATH="$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"
           echo "sdk.dir=$ANDROID_HOME" > local.properties
           yes | sdkmanager --licenses > /dev/null
           sdkmanager --install "platforms;android-35" "build-tools;35.0.0" "ndk;25.1.8937393" "cmake;3.22.1"
